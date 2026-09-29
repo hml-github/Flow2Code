@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "bundle": "main",
+  "tasks": 5622,
+  "images": 16866,
+  "assets": 33732,
+  "counts": {
+    "classeval": 100,
+    "humaneval_x": 492,
+    "mbxp": 4277,
+    "mceval": 753
+  },
+  "language_counts": {
+    "c": 50,
+    "cpp": 825,
+    "csharp": 661,
+    "fortran": 50,
+    "html": 50,
+    "java": 828,
+    "javascript": 661,
+    "pascal": 50,
+    "perl": 50,
+    "php": 661,
+    "python": 925,
+    "ruby": 661,
+    "shell": 50,
+    "tcl": 50,
+    "vb": 50
+  },
+  "split": "unspecified"
+}
