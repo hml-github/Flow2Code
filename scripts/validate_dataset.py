@@ -105,12 +105,12 @@ def validate(root, bundle="main", metadata_only=False):
                 require(path.read_text(encoding="utf-8").strip() == record["reference_code"].strip(), f"Reference code mismatch: {uid}")
     require(dict(counts) == expected, f"Unexpected subset counts: {dict(counts)}")
     require(sum(map(len, record_cache.values())) == len(manifest), "Unreferenced records")
-    disk_records = {str(p.relative_to(root)) for p in (root / base / "records").rglob("*.jsonl")}
+    disk_records = {p.relative_to(root).as_posix() for p in (root / base / "records").rglob("*.jsonl")}
     require(disk_records == set(record_cache), "Unreferenced record files")
     if bundle == "supplementary":
         require(seen == {f"humaneval_x/javascript/{i}" for i in range(164)}, "Incomplete supplementary IDs")
     if not metadata_only:
-        disk_assets = {str(p.relative_to(root)) for p in (root / base / "assets").rglob("*") if p.is_file()}
+        disk_assets = {p.relative_to(root).as_posix() for p in (root / base / "assets").rglob("*") if p.is_file()}
         require(paths == disk_assets, "Unreferenced asset files")
     summary = json.loads((root / base / "summary.json").read_text())
     dataset_counts = Counter()
